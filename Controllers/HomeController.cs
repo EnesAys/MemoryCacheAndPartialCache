@@ -12,21 +12,17 @@ namespace MemoryCacheAndPartialCache.Controllers
 {
     public class HomeController : Controller
     {        
-        private readonly ITeamService _teamService;
+        private readonly IMemoryCacheService _memoryCacheService;
 
-        public HomeController(ITeamService teamService)
+        public HomeController(IMemoryCacheService memoryCacheService)
         {            
-            _teamService = teamService;
+            _memoryCacheService = memoryCacheService;
         }
 
         // [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Index()
         {
-            var players = _teamService.GetPlayers();
-            var teamSquad = new TeamSquad{
-                CheckTime = DateTime.Now,
-                Players = players
-            };
+            var teamSquad = _memoryCacheService.GetTeamSquad();
             return View(teamSquad);
         }
     }

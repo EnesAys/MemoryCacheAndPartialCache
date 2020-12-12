@@ -9,6 +9,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using MemoryCacheAndPartialCache.Services;
+using Microsoft.Extensions.Caching.Memory;
 
 namespace MemoryCacheAndPartialCache
 {
@@ -26,6 +27,8 @@ namespace MemoryCacheAndPartialCache
         {
             services.AddControllersWithViews();
             services.AddSingleton<ITeamService,TeamService>();
+            services.AddSingleton<IMemoryCacheService,MemoryCacheService>();
+            services.AddMemoryCache();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
