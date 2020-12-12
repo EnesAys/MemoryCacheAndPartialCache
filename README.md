@@ -1,2 +1,2 @@
 # MemoryCacheAndPartialCache
-Asp .Net Core Memory Cache and Partial Cache example
+Asp .Net Core (Net 5.0) Memory Cache and Partial Cache example

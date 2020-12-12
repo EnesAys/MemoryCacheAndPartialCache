@@ -1,0 +1,19 @@
+﻿@model TeamSquad
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<table>
+    <h1> CheckTime is @Model.CheckTime.ToString()</h1>
+    <tr>
+        <td>Id</td>
+        <td>Name</td>
+    </tr>
+    @foreach (var player in Model.Players)
+    {
+        <tr>
+            <td>@player.Id</td>
+            <td>@player.Name</td>
+        </tr>
+    }
+</table>
